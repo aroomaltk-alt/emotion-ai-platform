@@ -5,7 +5,7 @@ sqlalchemy
 passlib[bcrypt]
 bcrypt
 python-jose[cryptography]
-pydantic
+pydantic[email]
 transformers
 torch
 numpy
