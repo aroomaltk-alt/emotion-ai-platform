@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.db
+*.sqlite3
+*.log
+.venv/
+venv/
+env/
+
+# Environment variables
+.env
+
+# VS Code
+.vscode/
+
+# Node
+frontend/node_modules/
+frontend/dist/
+
+# Python cache
+backend/__pycache__/
+
+# Dataset
+datasets/
+
+# Windows
+Thumbs.db
+
+# AI Models
+*.pkl
+
+# Audio Files
+*.wav
