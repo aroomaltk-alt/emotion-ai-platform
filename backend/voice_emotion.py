@@ -1,10 +1,12 @@
+import os
 import librosa
 import numpy as np
 import joblib
-
 # Load trained model once
-model = joblib.load("voice_model.pkl")
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+MODEL_PATH = os.path.join(BASE_DIR, "voice_model.pkl")
 
+model = joblib.load(MODEL_PATH)
 
 def extract_features(audio_path):
     y, sr = librosa.load(audio_path, sr=None)
