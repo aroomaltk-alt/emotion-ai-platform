@@ -31,6 +31,7 @@ Thumbs.db
 
 # AI Models
 *.pkl
+!backend/voice_model.pkl
 
 # Audio Files
 *.wav
