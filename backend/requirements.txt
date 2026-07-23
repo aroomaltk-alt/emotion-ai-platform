@@ -17,6 +17,7 @@ librosa
 soundfile
 joblib
 tensorflow
+tf-keras
 deepface
 python-dotenv
 setuptools
