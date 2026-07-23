@@ -1,31 +1,31 @@
-from fer import FER
+from deepface import DeepFace
 import cv2
 import numpy as np
 
-detector = FER()
-
 
 def detect_face_emotion(frame):
+    try:
+        result = DeepFace.analyze(
+            img_path=frame,
+            actions=["emotion"],
+            enforce_detection=False
+        )
 
-    emotions = detector.detect_emotions(frame)
+        # Handle list or dict response
+        if isinstance(result, list):
+            result = result[0]
 
-    if len(emotions) == 0:
         return {
-            "emotion": "No face detected",
-            "confidence": 0.0
+            "emotion": result["dominant_emotion"],
+            "confidence": round(
+                max(result["emotion"].values()) / 100,
+                4
+            )
         }
 
-    emotion_scores = emotions[0]["emotions"]
-
-    best_emotion = max(
-        emotion_scores,
-        key=emotion_scores.get
-    )
-
-    return {
-        "emotion": best_emotion,
-        "confidence": round(
-            emotion_scores[best_emotion],
-            4
-        )
-    }
+    except Exception as e:
+        return {
+            "emotion": "Unknown",
+            "confidence": 0.0,
+            "error": str(e)
+        }
